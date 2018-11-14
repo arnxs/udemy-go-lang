@@ -26,27 +26,27 @@ func main() {
 	// printGreetingSpanish(sb)
 }
 
-func (sb spanishBot) getGreeting() string {
+func (spanishBot) getGreeting() string {
 	return "Hola"
 }
 
-func (eb englishBot) getGreeting() string {
+func (englishBot) getGreeting() string {
 	return "Hello"
 }
 
-func (gb germanBot) getGreeting() string {
+func (germanBot) getGreeting() string {
 	return "German Hello"
 }
 
-func (sb spanishBot) sayFarewell() string {
+func (spanishBot) sayFarewell() string {
 	return "sp bye"
 }
 
-func (eb englishBot) sayFarewell() string {
+func (englishBot) sayFarewell() string {
 	return "eb bye"
 }
 
-func (gb germanBot) sayFarewell() string {
+func (germanBot) sayFarewell() string {
 	return "gb bye"
 }
 
