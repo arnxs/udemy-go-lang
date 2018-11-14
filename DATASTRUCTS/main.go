@@ -15,17 +15,15 @@ func main() {
 
 	jim.print()
 
-	ptrJim := &jim
-
-	ptrJim.updateFirstName("Jimmy")
+	jim.updateFirstName("Jimmy")
 
 	jim.print()
 
-	ptrJim.updateFirstName("Jimmed")
+	jim.updateFirstName("Jimmed")
 
 	jim.print()
 
-	(*(&jim)).updateFirstName("Jimmer")
+	jim.updateFirstName("Jimmer")
 
 	jim.print()
 }
