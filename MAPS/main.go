@@ -8,11 +8,14 @@ func main() {
 	data = map[string]string{
 		"foo":   "bar",
 		"hello": "world",
+		"green": "apple",
 	}
 	data["sushi"] = "wasabi"
 
 	fmt.Println(data)
 	fmt.Println(data["sushi"])
+
+	printMap(data)
 
 	delete(data, "foo")
 
@@ -24,4 +27,11 @@ func main() {
 	}
 
 	fmt.Println(otherData)
+
+}
+
+func printMap(m map[string]string) {
+	for k, v := range m {
+		fmt.Println(k, v)
+	}
 }
