@@ -8,21 +8,26 @@ type person struct {
 }
 
 func main() {
-	p := person{
+	jim := person{
 		firstName: "Jim",
 		lastName:  "Smith",
 	}
 
-	p.print()
+	jim.print()
 
-	ptrPerson := &p
-	ptrPerson.updateFirstName("Jimmy")
+	ptrJim := &jim
 
-	p.print()
+	ptrJim.updateFirstName("Jimmy")
 
-	ptrPerson.updateFirstName("Fred")
+	jim.print()
 
-	p.print()
+	ptrJim.updateFirstName("Jimmed")
+
+	jim.print()
+
+	(*(&jim)).updateFirstName("Jimmer")
+
+	jim.print()
 }
 
 func (p person) print() {
