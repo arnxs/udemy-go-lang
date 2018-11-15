@@ -15,12 +15,13 @@ func main() {
 	}
 
 	for _, link := range links {
-		checkLink(link)
+		// checkLink(link)
+		go checkLink(link)
 	}
 }
 
 func checkLink(link string) {
-	_, err := http.Get(link)
+	_, err := http.Get(link) // this is blocking call!!! ==> make a goroutine
 	if err != nil {
 		fmt.Println(link, "might be down!")
 	} else {
