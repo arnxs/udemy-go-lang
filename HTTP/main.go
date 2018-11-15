@@ -30,6 +30,7 @@ func main() {
 }
 
 func (logWriter) Write(bs []byte) (int, error) {
-	fmt.Println("using logWriter")
-	return 1, nil
+	fmt.Println(string(bs))
+	fmt.Println("Just wrote this many bytes:", len(bs))
+	return len(bs), nil
 }
