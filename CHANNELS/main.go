@@ -17,10 +17,13 @@ func main() {
 	c := make(chan string)
 
 	for _, link := range links {
-		// checkLink(link)
 		go checkLink(c, link)
 	}
 
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	fmt.Println(<-c)
 	fmt.Println(<-c)
 }
 
