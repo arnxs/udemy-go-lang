@@ -20,8 +20,8 @@ func main() {
 		go checkLink(c, link)
 	}
 
-	for i := 0; i < len(links); i++ {
-		fmt.Println(<-c) // this is blocking
+	for {
+		go checkLink(c, <-c)
 	}
 
 }
@@ -33,5 +33,5 @@ func checkLink(c chan string, link string) {
 	} else {
 		fmt.Println(link, "is up!")
 	}
-	c <- "done"
+	c <- link
 }
