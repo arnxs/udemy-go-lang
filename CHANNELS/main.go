@@ -20,20 +20,18 @@ func main() {
 		go checkLink(c, link)
 	}
 
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-	fmt.Println(<-c)
+	for i := 0; i < len(links); i++ {
+		fmt.Println(<-c) // this is blocking
+	}
+
 }
 
 func checkLink(c chan string, link string) {
 	_, err := http.Get(link) // this is blocking call!!! ==> make a goroutine
 	if err != nil {
 		fmt.Println(link, "might be down!")
-		c <- "might be down"
 	} else {
 		fmt.Println(link, "is up!")
-		c <- "yup it's up"
 	}
+	c <- "done"
 }
