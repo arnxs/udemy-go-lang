@@ -14,17 +14,23 @@ func main() {
 		"http://amazon.com",
 	}
 
+	c := make(chan string)
+
 	for _, link := range links {
 		// checkLink(link)
-		go checkLink(link)
+		go checkLink(c, link)
 	}
+
+	fmt.Println(<-c)
 }
 
-func checkLink(link string) {
+func checkLink(c chan string, link string) {
 	_, err := http.Get(link) // this is blocking call!!! ==> make a goroutine
 	if err != nil {
 		fmt.Println(link, "might be down!")
+		c <- "might be down"
 	} else {
 		fmt.Println(link, "is up!")
+		c <- "yup it's up"
 	}
 }
